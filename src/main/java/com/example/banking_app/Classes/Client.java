@@ -53,6 +53,18 @@ public class Client {
         addTranaction("Deposit", amount);
     }
 
+    public void withdraw(double amount)
+    {
+        if(balance >= amount)
+        {
+            balance -=amount;
+            addTranaction("withdraw",amount);
+        }
+        else {
+            System.out.println("Insufficient");
+        }
+    }
+
     public void addTranaction(String type, double amount) {
         Transaction transaction = new Transaction(type ,amount);
         transactions.add(transaction);
